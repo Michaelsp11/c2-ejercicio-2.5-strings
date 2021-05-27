@@ -12,13 +12,11 @@ González: Este apellido podría ser de cualquier país
 
 Falciani: Este apellido tiene muchas probabilidades de ser italiano
 */
-const siEsItaliano = "Este apellido tiene muchas probabilidades de ser italiano";
+const siEsItaliano =
+  "Este apellido tiene muchas probabilidades de ser italiano";
 const noEsItaliano = "Este apellido podría ser de cualquier país";
+const esItaliano = (apellido) => apellido.charAt(apellido.length - 1) === "i";
 let apellido = "González";
-console.log((esItaliano(apellido)) ? siEsItaliano : noEsItaliano);
+console.log(esItaliano(apellido) ? siEsItaliano : noEsItaliano);
 apellido = "Falciani";
-console.log((esItaliano(apellido)) ? siEsItaliano : noEsItaliano);
-
-function esItaliano(apellido) {
-    return apellido.charAt(apellido.length - 1) === "i";
-}
+console.log(esItaliano(apellido) ? siEsItaliano : noEsItaliano);
