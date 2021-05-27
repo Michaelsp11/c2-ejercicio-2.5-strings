@@ -1,39 +1,24 @@
 /*
-Punto 1
-Crea un script JS que declare una variable y asígnale un string que sea una frase escrita en snakecase.
+Crea una función llamada esItaliano que recibirá un valor de tipo string y devolverá un booleano.
 
-Haz que el script convierta esa frase en camelCase (con la primera en minúsculas) y la imprima por consola.
+Esta función tiene que devolver true si la cadena recibida acaba en i, y false en caso contrario.
+
+Crea dos variables que contengan apellidos, uno acabado en i y otro no.Haciendo uso de la función anterior, haz que tu script imprima por consola "Este apellido tiene muchas probabilidades de ser italiano"
+o "Este apellido podría ser de cualquier país", para cada una de las variables creadas.
+
+Por ejemplo:
+
+González: Este apellido podría ser de cualquier país
+
+Falciani: Este apellido tiene muchas probabilidades de ser italiano
 */
-let snakeCase = "hola_amigos_programadores";
-snakeCase = snakeCase.split("_");
-console.log(toCamelCase(snakeCase));
+const siEsItaliano = "Este apellido tiene muchas probabilidades de ser italiano";
+const noEsItaliano = "Este apellido podría ser de cualquier país";
+let apellido = "González";
+console.log((esItaliano(apellido)) ? siEsItaliano : noEsItaliano);
+apellido = "Falciani";
+console.log((esItaliano(apellido)) ? siEsItaliano : noEsItaliano);
 
-function toCamelCase(arrayString) {
-    let camelCase = "";
-    for (const i in arrayString) {
-        if (i > 0) {
-            camelCase += arrayString[i].charAt(0).toUpperCase();
-            camelCase += arrayString[i].slice(1);
-        } else {
-            camelCase += arrayString[i].toLowerCase();
-        }
-    }
-    return camelCase;
-}
-/*
-Punto 2
-Crea un script JS que declare una variable y asígnale un string que sea una frase escrita en camelCase (con la primera en minúsculas).
-
-Haz que el script convierta esa frase en snakecase y la imprima por consola.
-*/
-let camelCase = "holaAmigosProgramadores";
-console.log(toSnakeCase(camelCase));
-
-function toSnakeCase(frase) {
-    for (let i = 0; i < frase.length; i++) {
-        if (frase.charAt(i) === frase.charAt(i).toUpperCase()) {
-            frase = frase.replace(frase.charAt(i), '_' + frase.charAt(i).toLowerCase());
-        }
-    }
-    return frase;
+function esItaliano(apellido) {
+    return apellido.charAt(apellido.length - 1) === "i";
 }
